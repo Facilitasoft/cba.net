@@ -22,17 +22,17 @@ import { Component } from '@angular/core';
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <h3>20+</h3>
+          <h3>+20</h3>
           <p>Eventos realizados</p>
         </div>
         <div class="stat">
-          <h3>8</h3>
+          <h3>+8</h3>
           <p>Anos de Experiência</p>
         </div>
-        <div class="stat">
+        <!-- <div class="stat">
           <h3>15</h3>
           <p>Instrutores</p>
-        </div>
+        </div> -->
       </div>
     </section>
   `,
@@ -171,25 +171,89 @@ import { Component } from '@angular/core';
     }
 
     @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        min-height: 400px;
+        flex-direction: column;
+        padding: 2rem 0.5rem;
+      }
+      .hero-content {
+        padding: 0 0.5rem;
+      }
       .hero-stats {
-        gap: 2rem;
-        bottom: 2rem;
+        position: static;
+        transform: none;
+        flex-direction: row;
+        gap: 1.2rem;
+        margin-top: 2rem;
+        justify-content: center;
       }
-
       .stat h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
-
       .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 0.7rem;
       }
-
       .btn-primary,
       .btn-secondary {
-        width: 250px;
+        width: 100%;
+        min-width: 0;
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: auto;
+        min-height: 300px;
+        flex-direction: column;
+        padding: 1rem 0.2rem;
+      }
+      .hero-content {
+        padding: 0 0.2rem;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 0.7rem;
+        margin-top: 1rem;
+        align-items: center;
+      }
+      .stat h3 {
+        font-size: 1.1rem;
+      }
+      .stat p {
+        font-size: 0.8rem;
+      }
+      .hero-content h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 0.7rem;
+      }
+      .hero-buttons {
+        gap: 0.5rem;
+      }
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.95rem;
+        padding: 0.7rem 0.5rem;
       }
     }
   `]
 })
-export class HeroComponent {}
+export class HeroComponent { }

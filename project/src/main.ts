@@ -3,7 +3,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header.component';
 import { FooterComponent } from './components/footer.component';
-import { HomeComponent } from './components/home.component';
 import { ChampionshipComponent } from './components/championship.component';
 
 @Component({

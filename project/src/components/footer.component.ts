@@ -33,20 +33,18 @@ import { Component } from '@angular/core';
           <div class="footer-section">
             <h4>Academia</h4>
             <ul>
-              <li><a href="#about">Sobre Nós</a></li>
-              <li><a href="#trainers">Instrutores</a></li>
-              <li><a href="#pricing">Planos</a></li>
-              <li><a href="#contact">Contato</a></li>
+              <li><a href="#inscricao">Inscrever-se</a></li>
+              <li><a href="#trainers">Apoiadores</a></li>
+              <li><a href="#pricing">Categorias</a></li>
             </ul>
           </div>
-          
+
           <div class="footer-section">
             <h4>Contato</h4>
             <div class="contact-info">
-              <p>📍 Rua dos Campeões, 123<br>Centro, São Paulo - SP</p>
-              <p>📞 (11) 9999-9999</p>
-              <p>✉️ contato&#64;fightclub.com.br</p>
-              <p>⏰ Segunda a Sexta: 6h às 22h<br>Sábados: 8h às 18h</p>
+              <p>📍 Rua Mergenthaler, 900 - Vila Leopoldina, São Paulo - SP</p>
+              <p>📞 (11) 9 4751-3175</p>
+              <p>✉️ E-mail: tony.boxe&#64;hotmail.com </p>
             </div>
           </div>
         </div>
