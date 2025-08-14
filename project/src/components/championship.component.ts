@@ -9,140 +9,138 @@ import { HeroComponent } from "./hero.component";
   template: `
     <div class="championship-page">
       <app-hero></app-hero>
-
-      <div class="championship-content">
+      <div class="championship-content py-5">
         <div class="container">
           <!-- Informações Principais -->
           <section class="main-info mb-5">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 info-grid">
-              <div class="col">
-                <div class="info-card h-100 d-flex flex-column align-items-center justify-content-center">
-                  <div class="card-icon">💰</div>
-                  <h3>Valor da Inscrição</h3>
-                  <p class="price">R$ 200,00</p>
-                  <p>Por aluno participante</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="info-card h-100 d-flex flex-column align-items-center justify-content-center">
-                  <div class="card-icon">📍</div>
-                  <h3>Local</h3>
-                  <p class="location">Academia Cornerman</p>
-                  <p>Rua Mergenthaler, 900<br>Vila Leopoldina - São Paulo</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="info-card h-100 d-flex flex-column align-items-center justify-content-center">
-                  <div class="card-icon">🎟️</div>
-                  <h3>Entrada Público</h3>
-                  <p class="price">R$ 50,00</p>
-                  <p>Por pessoa para assistir</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="info-card h-100 d-flex flex-column align-items-center justify-content-center">
-                  <div class="card-icon">⚖️</div>
-                  <h3>Pesagem</h3>
-                  <p class="time">13h às 14h</p>
-                  <p>No local dos combates</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+              <div class="col" *ngFor="let info of [
+                {icon:'💰', title:'Valor da Inscrição', value:'R$ 200,00', desc:'Por aluno participante', class:'price'},
+                {icon:'📍', title:'Local', value:'Academia Cornerman', desc:'Rua Mergenthaler, 900<br>Vila Leopoldina - São Paulo', class:'location'},
+                {icon:'🎟️', title:'Entrada Público', value:'R$ 50,00', desc:'Por pessoa para assistir', class:'price'},
+                {icon:'⚖️', title:'Pesagem', value:'13h às 14h', desc:'No local dos combates', class:'time'}
+              ]">
+                <div class="info-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
+                  <div class="card-icon">{{info.icon}}</div>
+                  <h3>{{info.title}}</h3>
+                  <p [ngClass]="info.class" [innerHTML]="info.value"></p>
+                  <p [innerHTML]="info.desc"></p>
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Categorias de Alunos -->
-          <section class="student-categories">
-            <h2>CATEGORIAS DE <span>ALUNOS</span></h2>
-            <div class="categories-grid">
-              <div class="category-card">
-                <div class="category-icon">🌟</div>
-                <h4>Estreante</h4>
-                <p>Aluno que nunca participou de competições de boxe ou qualquer esporte de combate.</p>
+          <section class="student-categories mb-5">
+            <h2 class="text-center mb-4">CATEGORIAS DE <span>ALUNOS</span></h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                <div class="category-card h-100 text-center p-4">
+                  <div class="category-icon">🌟</div>
+                  <h4>Estreante</h4>
+                  <p>Aluno que nunca participou de competições de boxe ou qualquer esporte de combate.</p>
+                </div>
               </div>
-              <div class="category-card">
-                <div class="category-icon">🥊</div>
-                <h4>Com Lutas</h4>
-                <p>Já participaram de lutas de alunos mas nunca foram campeões. Nunca lutaram com luvas menores que 18 oz.</p>
+              <div class="col">
+                <div class="category-card h-100 text-center p-4">
+                  <div class="category-icon">🥊</div>
+                  <h4>Com Lutas</h4>
+                  <p>Já participaram de lutas de alunos mas nunca foram campeões. Nunca lutaram com luvas menores que 18 oz.</p>
+                </div>
               </div>
-              <div class="category-card">
-                <div class="category-icon">🏆</div>
-                <h4>Campeão</h4>
-                <p>Venceram na final do campeonato em sua categoria ou em qualquer evento de entretenimento de alunos.</p>
+              <div class="col">
+                <div class="category-card h-100 text-center p-4">
+                  <div class="category-icon">🏆</div>
+                  <h4>Campeão</h4>
+                  <p>Venceram na final do campeonato em sua categoria ou em qualquer evento de entretenimento de alunos.</p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Divisão de Idades -->
-          <section class="age-divisions">
-            <h2>DIVISÃO DE <span>IDADES</span></h2>
-            <div class="ages-grid">
-              <div class="age-card" *ngFor="let age of ageCategories">
-                <h4>{{age.name}}</h4>
-                <p class="age-range">{{age.range}}</p>
-                <p class="rounds-info">{{age.rounds}}</p>
+          <section class="age-divisions mb-5">
+            <h2 class="text-center mb-4">DIVISÃO DE <span>IDADES</span></h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+              <div class="col" *ngFor="let age of ageCategories">
+                <div class="age-card h-100 text-center p-3">
+                  <h4>{{age.name}}</h4>
+                  <p class="age-range">{{age.range}}</p>
+                  <p class="rounds-info">{{age.rounds}}</p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Categorias de Peso -->
-          <section class="weight-categories">
-            <h2>CATEGORIAS DE <span>PESO</span></h2>
-            <p class="subtitle">Masculino e Feminino</p>
-            <div class="weights-grid">
-              <div class="weight-card" *ngFor="let weight of weightCategories">
-                <h4>{{weight.name}}</h4>
-                <p class="weight-limit">{{weight.limit}}</p>
+          <section class="weight-categories mb-5">
+            <h2 class="text-center mb-2">CATEGORIAS DE <span>PESO</span></h2>
+            <p class="subtitle text-center">Masculino e Feminino</p>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
+              <div class="col" *ngFor="let weight of weightCategories">
+                <div class="weight-card h-100 text-center p-3">
+                  <h4>{{weight.name}}</h4>
+                  <p class="weight-limit">{{weight.limit}}</p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Documentação Obrigatória -->
-          <section class="documentation">
-            <h2>DOCUMENTAÇÃO <span>OBRIGATÓRIA</span></h2>
-            <div class="docs-grid">
-              <div class="doc-item" *ngFor="let doc of requiredDocs">
-                <div class="doc-icon">{{doc.icon}}</div>
-                <div class="doc-content">
-                  <h4>{{doc.title}}</h4>
-                  <p>{{doc.description}}</p>
+          <section class="documentation mb-5">
+            <h2 class="text-center mb-4">DOCUMENTAÇÃO <span>OBRIGATÓRIA</span></h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class="col" *ngFor="let doc of requiredDocs">
+                <div class="doc-item h-100 d-flex align-items-start gap-3 p-3">
+                  <div class="doc-icon">{{doc.icon}}</div>
+                  <div class="doc-content">
+                    <h4>{{doc.title}}</h4>
+                    <p>{{doc.description}}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Equipamentos -->
-          <section class="equipment">
-            <h2>EQUIPAMENTOS <span>OBRIGATÓRIOS</span></h2>
-            <div class="equipment-grid">
-              <div class="equipment-item" *ngFor="let item of equipment">
-                <div class="equipment-icon">{{item.icon}}</div>
-                <h4>{{item.name}}</h4>
-                <p>{{item.description}}</p>
+          <section class="equipment mb-5">
+            <h2 class="text-center mb-4">EQUIPAMENTOS <span>OBRIGATÓRIOS</span></h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let item of equipment">
+                <div class="equipment-item h-100 text-center p-3">
+                  <div class="equipment-icon">{{item.icon}}</div>
+                  <h4>{{item.name}}</h4>
+                  <p>{{item.description}}</p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Premiação -->
-          <section class="awards" >
-            <h2>CLASSIFICAÇÃO E <span>PREMIAÇÃO</span></h2>
-            <div class="awards-grid">
-              <div class="award-card individual">
-                <h3>🏆 Premiação Individual</h3>
-                <ul>
-                  <li><strong>1º Lugar:</strong> Cinturão de Ouro</li>
-                  <li><strong>2º Lugar:</strong> Medalha de Prata</li>
-                </ul>
+          <section class="awards mb-5">
+            <h2 class="text-center mb-4">CLASSIFICAÇÃO E <span>PREMIAÇÃO</span></h2>
+            <div class="row g-4 mb-3">
+              <div class="col-12 col-md-6">
+                <div class="award-card individual h-100 p-4">
+                  <h3>🏆 Premiação Individual</h3>
+                  <ul class="mb-0">
+                    <li><strong>1º Lugar:</strong> Cinturão de Ouro</li>
+                    <li><strong>2º Lugar:</strong> Medalha de Prata</li>
+                  </ul>
+                </div>
               </div>
-              <div class="award-card team">
-                <h3>🏅 Premiação por Equipe</h3>
-                <ul>
-                  <li><strong>1º Lugar:</strong> Troféu</li>
-                  <li><strong>2º Lugar:</strong> Troféu</li>
-                  <li><strong>3º Lugar:</strong> Troféu</li>
-                </ul>
+              <div class="col-12 col-md-6">
+                <div class="award-card team h-100 p-4">
+                  <h3>🏅 Premiação por Equipe</h3>
+                  <ul class="mb-0">
+                    <li><strong>1º Lugar:</strong> Troféu</li>
+                    <li><strong>2º Lugar:</strong> Troféu</li>
+                    <li><strong>3º Lugar:</strong> Troféu</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="scoring-info">
+            <div class="scoring-info p-4">
               <h4>Sistema de Pontuação por Equipe:</h4>
               <p>• Vitória nas preliminares: <strong>1 ponto</strong></p>
               <p>• Vitória nas semifinais: <strong>2 pontos</strong></p>
@@ -151,96 +149,69 @@ import { HeroComponent } from "./hero.component";
           </section>
 
           <!-- Apoiadores -->
-          <section class="sponsors">
-            <h2>NOSSOS <span>APOIADORES</span></h2>
-            <p class="subtitle">Agradecemos o apoio fundamental de nossos parceiros</p>
-            
-            <div class="sponsors-grid">
-              <div class="sponsor-category">
-                <h3>🤝 Apoiadores</h3>
-                <div class="regular-sponsors">
-                  <div class="sponsor-card" *ngFor="let sponsor of regularSponsors">
-                    <div class="sponsor-logo">
-                      <img [src]="sponsor.logo" [alt]="sponsor.name" />
+          <section class="sponsors mb-5">
+            <h2 class="text-center mb-2">NOSSOS <span>APOIADORES</span></h2>
+            <p class="subtitle text-center">Agradecemos o apoio fundamental de nossos parceiros</p>
+            <div class="row g-4 mb-4">
+              <div class="col-12">
+                <h3 class="text-center">🤝 Apoiadores</h3>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col" *ngFor="let sponsor of regularSponsors">
+                    <div class="sponsor-card h-100 text-center p-4">
+                      <div class="sponsor-logo mx-auto mb-3">
+                        <img [src]="sponsor.logo" [alt]="sponsor.name" class="img-fluid" />
+                      </div>
+                      <h4>{{sponsor.name}}</h4>
+                      <p>{{sponsor.description}}</p>
                     </div>
-                    <h4>{{sponsor.name}}</h4>
-                    <p>{{sponsor.description}}</p>
                   </div>
                 </div>
               </div>
-
-              <!-- <div class="sponsor-category">
-                <h3>💪 Apoio Técnico</h3>
-                <div class="technical-sponsors">
-                  <div class="sponsor-card" *ngFor="let sponsor of technicalSponsors">
-                    <div class="sponsor-logo">
-                      <img [src]="sponsor.logo" [alt]="sponsor.name" />
-                    </div>
-                    <h4>{{sponsor.name}}</h4>
-                    <p>{{sponsor.description}}</p>
-                  </div>
-                </div>
-              </div> -->
             </div>
-
-            <div class="become-sponsor">
+            <div class="become-sponsor p-4 mt-4 text-center">
               <h3>🤝 Seja um Apoiador</h3>
               <p>Interessado em apoiar o desenvolvimento do boxe brasileiro? Entre em contato conosco!</p>
-              <!-- <button class="sponsor-btn">Quero Apoiar</button> -->
             </div>
           </section>
 
           <!-- Inscrição -->
-          <section class="registration" id="inscricao">
-            <div class="registration-card">
-              <h2>FAÇA SUA <span>INSCRIÇÃO</span></h2>
-              <p>Período: <strong>17/06/2025 a 30/06/2025</strong></p>
-              
-              <!-- <div class="registration-info">
-                <div class="payment-info">
-                  <h3>💳 Pagamento via PIX</h3>
-                  <p><strong>Telefone:</strong> (11) 3685-9134-844</p>
-                  <p><strong>Nome:</strong> Ana Carolina</p>
-                  <p><strong>Valor:</strong> R$ 200,00</p>
+          <section class="registration mb-5" id="inscricao">
+            <div class="registration-card mx-auto p-4">
+              <h2 class="text-center">FAÇA SUA <span>INSCRIÇÃO</span></h2>
+              <p class="text-center">Período: <strong>17/06/2025 a 30/06/2025</strong></p>
+              <div class="row g-4">
+                <div class="col-12 col-md-6">
+                  <div class="registration-requirements h-100 p-3">
+                    <h3>📋 Dados Necessários para Inscrição:</h3>
+                    <ul class="mb-0">
+                      <li>Nome Completo</li>
+                      <li>Categoria: Aluno estreante, Aluno com lutas ou Aluno Campeão</li>
+                      <li>Telefone</li>
+                      <li>RG</li>
+                      <li>Gênero: Feminino ou Masculino</li>
+                      <li>Ano de Nascimento</li>
+                      <li>Peso (conforme tabela)</li>
+                      <li>Nome da Equipe</li>
+                      <li>Aceite do termo de participação</li>
+                    </ul>
+                  </div>
                 </div>
-                
-                <div class="contact-info">
-                  <h3>📧 Inscrições por Email</h3>
-                  <p><strong>Email:</strong> tony.boxe&#64;hotmail.com</p>
-                  
-                  <h3>📱 Informações WhatsApp</h3>
-                  <p><strong>Tony:</strong> (11) 94751-3175</p>
-                  <p><strong>Leandro:</strong> (11) 98130-4443</p>
+                <div class="col-12 col-md-6">
+                  <div class="important-notes h-100 p-3">
+                    <h3>⚠️ Informações Importantes:</h3>
+                    <ul class="mb-0">
+                      <li>Não haverá tolerância na balança</li>
+                      <li>Valor só será devolvido se não houver adversário</li>
+                      <li>Cada equipe tem direito a 2 técnicos sem pagar entrada</li>
+                      <li>Alunos inscritos não pagam entrada</li>
+                      <li>Fraudes resultam em desclassificação sem reembolso</li>
+                    </ul>
+                  </div>
                 </div>
-              </div> -->
-
-              <div class="registration-requirements">
-                <h3>📋 Dados Necessários para Inscrição:</h3>
-                <ul>
-                  <li>Nome Completo</li>
-                  <li>Categoria: Aluno estreante, Aluno com lutas ou Aluno Campeão</li>
-                  <li>Telefone</li>
-                  <li>RG</li>
-                  <li>Gênero: Feminino ou Masculino</li>
-                  <li>Ano de Nascimento</li>
-                  <li>Peso (conforme tabela)</li>
-                  <li>Nome da Equipe</li>
-                  <li>Aceite do termo de participação</li>
-                </ul>
               </div>
-
-              <div class="important-notes">
-                <h3>⚠️ Informações Importantes:</h3>
-                <ul>
-                  <li>Não haverá tolerância na balança</li>
-                  <li>Valor só será devolvido se não houver adversário</li>
-                  <li>Cada equipe tem direito a 2 técnicos sem pagar entrada</li>
-                  <li>Alunos inscritos não pagam entrada</li>
-                  <li>Fraudes resultam em desclassificação sem reembolso</li>
-                </ul>
+              <div class="mt-4">
+                <button class="register-btn w-100" (click)="register()">Fazer Inscrição</button>
               </div>
-
-              <button class="register-btn">Fazer Inscrição</button>
             </div>
           </section>
         </div>
@@ -249,7 +220,43 @@ import { HeroComponent } from "./hero.component";
   `,
   styles: [`
     .championship-page {
-      min-height: 100vh;
+      min-height: 100vh; 
+    }
+
+    /* Garante que cada seção tenha espaçamento vertical suficiente */
+    section {
+      margin-bottom: 3rem !important;
+    }
+
+    /* Garante espaçamento entre cards e colunas Bootstrap */
+    .row > [class^="col"] {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Evita sobreposição de cards em telas pequenas */
+    .info-card, .category-card, .age-card, .weight-card, .doc-item, .equipment-item, .award-card, .sponsor-card {
+      min-width: 0;
+      min-height: 100px;
+      word-break: break-word;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Garante que o botão de inscrição não sobreponha nada */
+    .register-btn {
+      margin-top: 1.5rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Corrige possíveis sobreposições em colunas pequenas */
+    @media (max-width: 600px) {
+      .row > [class^="col"] {
+        margin-bottom: 1.2rem;
+      }
+      section {
+        margin-bottom: 2rem !important;
+      }
     }
 
     .championship-hero {
@@ -271,10 +278,8 @@ import { HeroComponent } from "./hero.component";
     }
 
     .hero-content {
-      position: relative;
       z-index: 2;
       max-width: 900px;
-      padding: 0 2rem;
     }
 
     .hero-content h1 {
@@ -1403,6 +1408,7 @@ import { HeroComponent } from "./hero.component";
   `]
 })
 export class ChampionshipComponent {
+
   ageCategories = [
     {
       name: 'MIRIM',
@@ -1551,4 +1557,8 @@ export class ChampionshipComponent {
       description: 'Fisioterapia e reabilitação'
     }
   ];
+
+  register() {
+    window.open('https://operador-academia-hml.facilitasoft.com.br/evento/0b9b3ff5-1412-4127-9352-acd0ce0bc027', '_blank');
+  }
 }

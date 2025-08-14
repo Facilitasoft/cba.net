@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
               <p><strong>Realizações: </strong></p>
               <img width="90" height="90" src="assets/cba.png" alt="CBA Logo" class="logo" style="margin-right: 10px;"/>
               <img width="90" height="90" src="assets/tonyboxe.png" alt="CBA Logo" class="logo"/>
-              <h3 class="brand-title">CBA</h3>
+              <h3 class="brand-title mt-5">CBA</h3>
             </div>
             <p>Transformando vidas através do boxe há mais de 8 anos. Venha descobrir o campeão que existe em você!</p>
             <div class="social-links">
@@ -42,11 +42,14 @@ import { Component } from '@angular/core';
           <div class="footer-section">
             <h4>Contato</h4>
             <div class="contact-info">
-              <p>📍 Rua Mergenthaler, 900 - Vila Leopoldina, São Paulo - SP</p>
-              <p>📞 (11) 9 4751-3175</p>
-              <p>✉️ E-mail: tony.boxe&#64;hotmail.com </p>
+              <ul>
+                <li><a href="#inscricao">📞 (11) 9 4751-3175</a></li>
+                <li><a href="#trainers">✉️ E-mail: tony.boxe&#64;hotmail.com</a></li>
+              </ul>
             </div>
           </div>
+
+
         </div>
         
         <div class="footer-bottom">

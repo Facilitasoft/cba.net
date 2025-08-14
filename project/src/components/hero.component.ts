@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>
+        <h1 class="p-0 m-0">
           CAMPEONATO DE
           <span>BOXE PARA ALUNOS</span>
         </h1>
@@ -38,15 +38,19 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+      max-height: 100vh;
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                  url('https://images.pexels.com/photos/4761663/pexels-photo-4761663.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover;
+                  url('https://images.pexels.com/photos/4761663/pexels-photo-4761663.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       color: white;
       text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
 
     .hero-overlay {
@@ -56,17 +60,15 @@ import { Component } from '@angular/core';
     }
 
     .hero-content {
-      position: relative;
       z-index: 2;
       max-width: 800px;
-      padding: 0 0rem;
       animation: fadeInUp 1s ease;
+      word-break: break-word;
     }
 
     .hero-content h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 900;
-      margin-bottom: 1.5rem;
       line-height: 1.2;
       letter-spacing: 2px;
     }
@@ -81,14 +83,12 @@ import { Component } from '@angular/core';
 
     .hero-content p {
       font-size: 1.2rem;
-      margin-bottom: 2.5rem;
       line-height: 1.6;
       opacity: 0.9;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -170,90 +170,6 @@ import { Component } from '@angular/core';
       }
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        height: auto;
-        min-height: 400px;
-        flex-direction: column;
-        padding: 2rem 0.5rem;
-      }
-      .hero-content {
-        padding: 0 0.5rem;
-      }
-      .hero-stats {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        gap: 1.2rem;
-        margin-top: 2rem;
-        justify-content: center;
-      }
-      .stat h3 {
-        font-size: 1.5rem;
-      }
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.7rem;
-      }
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-        min-width: 0;
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
-      }
-      .hero-content h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-        margin-bottom: 1.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        height: auto;
-        min-height: 300px;
-        flex-direction: column;
-        padding: 1rem 0.2rem;
-      }
-      .hero-content {
-        padding: 0 0.2rem;
-      }
-      .hero-stats {
-        flex-direction: column;
-        gap: 0.7rem;
-        margin-top: 1rem;
-        align-items: center;
-      }
-      .stat h3 {
-        font-size: 1.1rem;
-      }
-      .stat p {
-        font-size: 0.8rem;
-      }
-      .hero-content h1 {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-      .hero-content p {
-        font-size: 0.9rem;
-        margin-bottom: 0.7rem;
-      }
-      .hero-buttons {
-        gap: 0.5rem;
-      }
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-        min-width: 0;
-        font-size: 0.95rem;
-        padding: 0.7rem 0.5rem;
-      }
-    }
   `]
 })
 export class HeroComponent { }

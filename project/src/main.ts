@@ -10,15 +10,16 @@ import { ChampionshipComponent } from './components/championship.component';
   standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterOutlet],
   template: `
-    <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div class="container-fluid p-0 m-0 h-100">
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
   `,
   styles: [`
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     :host {
@@ -32,7 +33,7 @@ import { ChampionshipComponent } from './components/championship.component';
     }
   `]
 })
-export class App {}
+export class App { }
 
 const routes = [
   // { path: '', component: HomeComponent },
